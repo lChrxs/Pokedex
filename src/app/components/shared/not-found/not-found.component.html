@@ -1,0 +1,31 @@
+<p>not-found works!</p>
+
+<ul>
+  <li><a routerLink="/authLazy">Ir a Login</a></li>
+  <li><a routerLink="/authLazy/login">Ir a Login Lazy</a></li>
+  <li><a routerLink="/authLazy/enroll">Ir a Registro</a></li>
+  <li><a routerLink="/pokedex">Pokedex</a></li>
+  <li><a routerLink="/pokedex/add">Agregar</a></li>
+  <li><a routerLink="/pokedex/edit/23">Editar</a></li>
+  <li><a routerLink="/pokedex/find">Buscar</a></li>
+  <li><a routerLink="/pokedex/list">Lista</a></li>
+  <li><a routerLink="/pokedex/pokemon/55">Pokemon</a></li>
+</ul>
+<br>
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()">
+
+    <label for="user">Usuario</label>
+    <input type="text" id="user" name="user" formControlName="user">
+    <br>
+    <label for="password">Clave</label>
+    <input type="password" id="password" name="password" formControlName="password">
+    <br>
+    <button>Login</button>
+    <div class="invalid" *ngIf="!token">No se pudo generar el Token</div>
+  </form>
+</div>
+<br>
+<button (click)="login()">Login</button>
+<button (click)="logout()">Logout</button>
+<p>{{showSession()}}</p>
